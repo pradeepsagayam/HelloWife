@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pinkStart">#ff87c3</color>
+    <color name="pinkEnd">#ffb4d9</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="disable_btn_color">#a9abac</color>
+</resources>

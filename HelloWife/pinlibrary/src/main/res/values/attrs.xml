@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PinLock">
+
+        <attr name="statusDotDiameter" format="dimension"/>
+        <attr name="statusDotSpacing" format="dimension"/>
+        <attr name="statusFilledBackground" format="reference"/>
+        <attr name="statusEmptyBackground" format="reference"/>
+
+        <attr name="pinLength" format="integer"/>
+
+        <attr name="keypadWidth" format="dimension"/>
+        <attr name="keypadHeight" format="dimension"/>
+        <attr name="keypadVerticalSpacing" format="dimension"/>
+        <attr name="keypadHorizontalSpacing" format="dimension"/>
+
+        <attr name="keypadTextSize" format="dimension"/>
+        <attr name="keypadTextColor" format="color"/>
+        <attr name="keypadButtonShape" format="reference"/>
+
+        <attr name="backgroundColor" format="color"/>
+
+        <attr name="cancelTextSize" format="dimension"/>
+        <attr name="cancelTextColor" format="color"/>
+
+        <attr name="forgotTextSize" format="dimension"/>
+        <attr name="forgotTextColor" format="color"/>
+
+        <attr name="cancelForgetButtonBackground" format="reference"/>
+
+        <attr name="infoTextSize" format="dimension"/>
+        <attr name="infoTextColor" format="color"/>
+    </declare-styleable>
+</resources>

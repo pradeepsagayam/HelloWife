@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">PinLibrary</string>
+    <string name="enter_pin">ENTER PIN</string>
+    <string name="cancel">CANCEL</string>
+    <string name="forgot_pin">FORGOT PIN</string>
+</resources>

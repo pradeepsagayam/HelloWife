@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PinLock">
+
+        <item name="statusEmptyBackground">@drawable/empty_dot</item>
+        <item name="statusFilledBackground">@drawable/filled_dot</item>
+        <item name="statusDotDiameter">30dp</item>
+        <item name="statusDotSpacing">15dp</item>
+
+        <item name="pinLength">4</item>
+
+        <item name="keypadWidth">230dp</item>
+        <item name="keypadHeight">280dp</item>
+        <item name="keypadHorizontalSpacing">35dp</item>
+        <item name="keypadVerticalSpacing">15dp</item>
+
+        <item name="keypadTextSize">8dp</item>
+        <item name="keypadTextColor">@color/black</item>
+        <item name="keypadButtonShape">@drawable/circle</item>
+
+        <item name="backgroundColor">@color/white</item>
+
+        <item name="cancelTextSize">8dp</item>
+        <item name="cancelTextColor">@color/black</item>
+
+        <item name="forgotTextSize">8dp</item>
+        <item name="forgotTextColor">@color/black</item>
+
+        <item name="cancelForgetButtonBackground">@drawable/rectangle</item>
+
+        <item name="infoTextSize">8dp</item>
+        <item name="infoTextColor">@color/black</item>
+
+
+    </style>
+</resources>

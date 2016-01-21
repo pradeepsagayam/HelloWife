@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pinLockLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_pin"
+        android:id="@+id/label"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+        <com.msf.pinlibrary.StatusDot
+            android:id="@+id/statusDots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+        <com.msf.pinlibrary.KeyPad
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/keypad"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|center_vertical"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonLayout"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/ripple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleColor="@color/disable_btn_color"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleRoundedCorners="20dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancelButton"
+            android:text="@string/cancel"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"/>
+
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/ripple1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleColor="@color/disable_btn_color"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleRoundedCorners="20dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/forgotButton"
+            android:text="@string/forgot_pin"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"/>
+
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+    </LinearLayout>
+</LinearLayout>
