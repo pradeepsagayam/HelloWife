@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Hello Wife</string>
     <string name="action_settings">Settings</string>
+    <string name="my_memories_with_her">My Memories With Her..</string>
+    <string name="my_notes_on_her">My Notes On Her..</string>
+    <string name="greet_her">Greet Her..</string>
 </resources>

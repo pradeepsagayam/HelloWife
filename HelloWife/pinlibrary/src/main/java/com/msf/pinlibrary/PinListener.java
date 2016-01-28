@@ -12,7 +12,7 @@ public interface PinListener {
 
     String TEXT_ENTER_PIN = "ENTER PIN";
     String TEXT_PIN_INVALID = "INVALID PIN. TRY AGAIN";
-    String TEXT_NEW_PIN = "ENTER NEW PIN";
+    String TEXT_NEW_PIN = "SET NEW PIN";
     String TEXT_CONFIRM_PIN = "RE-ENTER PIN TO CONFIRM";
     String TEXT_PIN_MISMATCH = "PIN DOESN'T MATCH. TRY AGAIN";
 

@@ -61,7 +61,7 @@ public class KeypadAdapter extends BaseAdapter {
                 Button key = (Button) v;
                 final String keyText = key.getText().toString();
                 String currentPin = KeyPad.onKeyPressed(keyText);
-                System.out.println("AAAA currentPin : " + currentPin);
+//                System.out.println("AAAA currentPin : " + currentPin);
                 int currentPinLength = currentPin.length();
                 pinListener.onPinValueChange(currentPinLength);
                 if(currentPinLength == pinLength){
