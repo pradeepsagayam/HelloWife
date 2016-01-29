@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.CallLog;
 import android.provider.ContactsContract;
-import android.telecom.Call;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -112,32 +111,9 @@ public class ContactUtils {
                 ContactsContract.Contacts.Photo.CONTENT_DIRECTORY);
     }
 
-    public static void wirteCallLog(Context context, CallLogs callLogs) {
-        ContentValues values = new ContentValues();
-        values.put(CallLog.Calls.NUMBER, callLogs.getNumber());
-        values.put(CallLog.Calls.DATE, callLogs.getCallDate());
-        values.put(CallLog.Calls.DURATION, 0);
-        values.put(CallLog.Calls.TYPE, callLogs.getType());
-        values.put(CallLog.Calls.NEW, 1);
-        values.put(CallLog.Calls.CACHED_NAME, callLogs.getName());
-        values.put(CallLog.Calls.CACHED_NUMBER_TYPE, callLogs.getCallNumberType());
-        values.put(CallLog.Calls.CACHED_NUMBER_LABEL, "");
-        try {
-            context.getContentResolver().insert(CallLog.Calls.CONTENT_URI, values);
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-    public static void deleteCallLog(Context context, CallLogs callLogs) {
-        deleteCallLog(context, callLogs.getCallLogID());
-    }
 
-    public static void deleteCallLog(Context context, String callLogID) {
-        context.getContentResolver().delete(Uri.withAppendedPath(CallLog.Calls.CONTENT_URI, callLogID), "", null);
-    }
+
 
     public static String fetchContactIdFromPhoneNumber(Context context,
                                                        String phoneNumber) {
