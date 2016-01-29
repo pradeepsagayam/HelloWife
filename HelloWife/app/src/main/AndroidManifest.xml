@@ -26,6 +26,8 @@
 
         <activity android:name=".SetUserPin" />
         <activity android:name=".EnterPin" />
+        <activity android:name=".HiddenActivity" />
+
     </application>
 
 </manifest>

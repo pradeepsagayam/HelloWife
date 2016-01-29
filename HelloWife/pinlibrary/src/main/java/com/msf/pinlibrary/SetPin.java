@@ -20,7 +20,7 @@ public abstract class SetPin extends BasePin {
     @Override
     public final void onCompleted(String pin) {
         resetStatus();
-        if ("".equals(firstPin)) {
+        if (firstPin.equals("")) {
             firstPin = pin;
             setLabel(TEXT_CONFIRM_PIN);
         } else {
