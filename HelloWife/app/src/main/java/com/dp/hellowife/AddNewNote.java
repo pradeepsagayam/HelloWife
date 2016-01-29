@@ -130,6 +130,7 @@ public class AddNewNote extends AppCompatActivity implements View.OnClickListene
     public void onBackPressed() {
         super.onBackPressed();
         saveNotes(getNotesFromInput());
+        finish();
     }
 
     private void navigateToNotesList() {

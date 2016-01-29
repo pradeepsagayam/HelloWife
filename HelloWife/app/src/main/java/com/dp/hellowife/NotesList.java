@@ -104,4 +104,17 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
         Intent i = new Intent(this, AddNewNote.class);
         startActivityForResult(i, AppConstants.ADD_NEW_NOTE_RESULT);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        navigateToMainActivity();
+        finish();
+    }
+
+    private void navigateToMainActivity() {
+        Intent i = new Intent(this, HomeScreen.class);
+        startActivity(i);
+    }
+
 }

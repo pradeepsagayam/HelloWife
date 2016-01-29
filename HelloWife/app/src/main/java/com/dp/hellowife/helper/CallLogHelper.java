@@ -8,9 +8,10 @@ import android.database.Cursor;
 import android.provider.CallLog;
 import android.support.v4.app.ActivityCompat;
 
+import com.dp.hellowife.model.CallLogs;
+
 import java.util.ArrayList;
 
-import model.CallLogs;
 
 /**
  * Created by pradeepd on 08-01-2016.

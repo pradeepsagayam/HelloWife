@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:background="@drawable/rectangle"
+        android:background="@drawable/rectangle_note"
         android:gravity="center"
         android:padding="20dp">
 
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:background="@drawable/rectangle"
+        android:background="@drawable/rectangle_note"
         android:orientation="vertical"
         android:padding="20dp">
 

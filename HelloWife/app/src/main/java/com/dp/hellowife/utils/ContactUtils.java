@@ -2,17 +2,16 @@ package com.dp.hellowife.utils;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.CallLog;
 import android.provider.ContactsContract;
 
+import com.dp.hellowife.model.CallLogs;
+
 import java.util.ArrayList;
 import java.util.Date;
-
-import model.CallLogs;
 
 /**
  * Created by pradeepd on 07-01-2016.
