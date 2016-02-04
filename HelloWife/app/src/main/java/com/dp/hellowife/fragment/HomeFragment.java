@@ -95,7 +95,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         switch (id) {
             case R.id.ring:
-                System.out.println("AAAA ring");
                 if (pinLockPrefs.getBoolean("isPinSet", false)) {
                     Intent intent = new Intent(getActivity(), EnterPin.class);
                     startActivity(intent);
@@ -110,13 +109,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             case R.id.memories_layout:
             case R.id.album_icon:
             case R.id.memories:
-                System.out.println("AAAA ring");
                 break;
 
             case R.id.notes_layout:
             case R.id.notes_icon:
             case R.id.notes:
-                System.out.println("AAAA ring");
                 Intent intent = new Intent(getActivity(), NotesList.class);
                 startActivity(intent);
 //                Toast.makeText(this, "My Notes on her...", Toast.LENGTH_SHORT).show();
@@ -125,8 +122,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             case R.id.greet_layout:
             case R.id.greet_icon:
             case R.id.greet:
-                System.out.println("AAAA ring");
-
                 break;
         }
     }

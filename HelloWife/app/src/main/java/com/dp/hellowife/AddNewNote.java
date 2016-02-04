@@ -44,7 +44,6 @@ public class AddNewNote extends AppCompatActivity implements View.OnClickListene
         setupViews();
         setupControllers();
 
-
     }
 
     private void setupViews() {
@@ -136,6 +135,7 @@ public class AddNewNote extends AppCompatActivity implements View.OnClickListene
     private void navigateToNotesList() {
         Intent i = new Intent(AddNewNote.this, NotesList.class);
         startActivity(i);
+        finish();
     }
 
     View.OnFocusChangeListener focusChangeListener = new View.OnFocusChangeListener() {

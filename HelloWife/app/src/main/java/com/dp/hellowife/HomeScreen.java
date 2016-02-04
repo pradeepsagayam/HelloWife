@@ -1,9 +1,10 @@
 package com.dp.hellowife;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,38 +12,66 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
-import com.dp.hellowife.fragment.HomeFragment;
+import com.msf.pinlibrary.PrefHelper;
 
 /**
  * Created by akshayas on 1/29/2016.
  */
-public class HomeScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     DrawerLayout drawer;
+    ActionBarDrawerToggle toggle;
+    Toolbar toolbar;
+    NavigationView navigationView;
+    SharedPreferences pinLockPrefs;
+    FloatingActionButton ring;
+    LinearLayout memoriesLayout, notesLayout, greetLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
+        setUpViews();
+        setUpListeners();
+    }
+
+    private void setUpViews() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        pinLockPrefs = PrefHelper.getPref(this.getApplicationContext(), "PinLockPrefs");
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        ring = (FloatingActionButton) findViewById(R.id.ring);
+
+        memoriesLayout = (LinearLayout) findViewById(R.id.memories_layout);
+        notesLayout = (LinearLayout) findViewById(R.id.notes_layout);
+        greetLayout = (LinearLayout) findViewById(R.id.greet_layout);
+    }
+
+    private void setUpListeners() {
+        setSupportActionBar(toolbar);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        ring.setOnClickListener(this);
+        memoriesLayout.setOnClickListener(this);
+        notesLayout.setOnClickListener(this);
+        greetLayout.setOnClickListener(this);
     }
 
     @Override
     public void onBackPressed() {
+        System.out.println("AAAA onBackPressed : ");
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            finish();
         }
     }
 
@@ -84,7 +113,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     public void selectDrawerItem(int itemId) {
         // Create a new fragment and specify the planet to show based on
         // position
-        Fragment fragment = null;
+//        Fragment fragment = null;
 
         switch (itemId) {
             case R.id.nav_camera:
@@ -109,7 +138,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
                 break;
         }
 
-        try {
+        /*try {
             fragment = HomeFragment.newInstance();
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,9 +146,40 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
 
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();*/
 
         // Highlight the selected item, update the title, and close the drawer
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+
+        switch (id) {
+            case R.id.ring:
+                if (pinLockPrefs.getBoolean("isPinSet", false)) {
+                    Intent intent = new Intent(this, EnterPin.class);
+                    startActivity(intent);
+//                    startActivityForResult(intent, REQUEST_CODE_CONFIRM_PIN);
+                } else {
+                    Intent intent = new Intent(this, SetUserPin.class);
+                    startActivity(intent);
+//                    startActivityForResult(intent, REQUEST_CODE_SET_PIN);
+                }
+                break;
+
+            case R.id.memories_layout:
+                break;
+
+            case R.id.notes_layout:
+                Intent intent = new Intent(this, NotesList.class);
+                startActivity(intent);
+//                Toast.makeText(this, "My Notes on her...", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.greet_layout:
+                break;
+        }
     }
 }

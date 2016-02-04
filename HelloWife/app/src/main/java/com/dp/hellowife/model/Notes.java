@@ -9,6 +9,13 @@ public class Notes implements Serializable{
 
     String title;
     String body;
+    public boolean isChecked;
+
+    public Notes(){}
+
+    public Notes(String title) {
+        this.title = title;
+    }
 
     public String getTitle() {
         return title;
@@ -24,5 +31,9 @@ public class Notes implements Serializable{
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public void setChecked(boolean isChecked) {
+        this.isChecked = isChecked;
     }
 }
