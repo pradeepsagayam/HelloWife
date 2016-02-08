@@ -28,25 +28,40 @@ import java.util.ArrayList;
  */
 public class NotesList extends AppCompatActivity implements View.OnClickListener {
 
-    View rootView;
     private MyRecyclerViewAdapter mAdapter;
     private static String LOG_TAG = "CardViewActivity";
     FloatingActionButton addNewNote;
     public static final int ROUND = 1;
     public static final int ROUND_WITH_BORDER = 2;
-    int type = ROUND;
     private Menu menu = null;
+    Builder mDrawableBuilder;
+    RecyclerView.LayoutManager mLayoutManager;
+    RecyclerView mRecyclerView;
 
     @Nullable
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_view);
-        final RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-        addNewNote = (FloatingActionButton) findViewById(R.id.addNewNote);
 
+        setUpViews();
+        setUpControllers();
+
+    }
+
+    private void setUpViews() {
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+
+        addNewNote = (FloatingActionButton) findViewById(R.id.addNewNote);
+        mLayoutManager = new LinearLayoutManager(this);
+
+        setRoundType(ROUND);
+
+    }
+
+    private void setRoundType(int type) {
         // initialize the builder based on the "TYPE"
-        Builder mDrawableBuilder;
         switch (type) {
             case ROUND:
                 mDrawableBuilder = TextDrawableHelper.builder().beginConfig().fontSize(70).endConfig().round();
@@ -58,9 +73,9 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
                 mDrawableBuilder = TextDrawableHelper.builder().beginConfig().fontSize(70).endConfig().round();
                 break;
         }
+    }
 
-        mRecyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+    private void setUpControllers() {
         addNewNote.setOnClickListener(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -77,7 +92,6 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
                 System.out.println("AAAA Item Unselected");
                 if (null != menu) {
                     menu.findItem(R.id.delete).setVisible(false);
-//                    menu.findItem(R.id.delete).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
                 }
             }
         });
@@ -107,11 +121,6 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
-            return true;
-        }*/
-
         switch (id) {
             case R.id.delete:
                 mAdapter.deleteSelectedItems();
@@ -120,18 +129,12 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
                 item.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
                 break;
 
-            case R.id.action_settings:
-                break;
-
             default:
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
-    /*private void updateRecentNotesList() {
-    }*/
 
     private ArrayList<Notes> getNotesList() {
         return DataBaseHelper.retriveNotes(getApplicationContext());
@@ -152,10 +155,8 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RESULT_OK) {
-            if (requestCode == AppConstants.ADD_NEW_NOTE_RESULT) {
-                updateNotesList();
-            }
+        if (resultCode == RESULT_OK && requestCode == AppConstants.ADD_NEW_NOTE_RESULT) {
+            updateNotesList();
         }
     }
 

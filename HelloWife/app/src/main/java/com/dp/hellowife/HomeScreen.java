@@ -34,12 +34,21 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setUpToolbar();
         setUpViews();
         setUpListeners();
     }
 
+    private void setUpToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+    }
+
     private void setUpViews() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         pinLockPrefs = PrefHelper.getPref(this.getApplicationContext(), "PinLockPrefs");
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(
@@ -54,7 +63,6 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     }
 
     private void setUpListeners() {
-        setSupportActionBar(toolbar);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
@@ -66,7 +74,6 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
 
     @Override
     public void onBackPressed() {
-        System.out.println("AAAA onBackPressed : ");
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {

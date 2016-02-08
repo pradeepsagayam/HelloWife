@@ -7,6 +7,15 @@
     <color name="colorAccent">#ffe1f0</color>
 
     <color name="divider">#d3d3d3</color>
+
     <color name="transparent">#00000000</color>
+
+    <color name="white">#ffffff</color>
+
+    <color name="white_highlight">#80ffffff</color>
+
+    <color name="cursor_pink">#ff87c3</color>
+
+    <color name="gray">#d3d3d3</color>
 
 </resources>

@@ -10,4 +10,7 @@
 
     <string name="navigation_drawer_open">Drawer Open..</string>
     <string name="navigation_drawer_close">Drawer Close..</string>
+
+    <string name="api_key">AIzaSyDxOMmG1pOdwsdSTtTfFJF2DB4SVw6KNhA</string>
+
 </resources>

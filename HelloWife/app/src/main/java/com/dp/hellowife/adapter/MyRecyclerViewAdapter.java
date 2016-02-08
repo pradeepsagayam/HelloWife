@@ -36,7 +36,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     DataObjectHolder dataObjectHolder;
     Context context;
     ItemSelectionListener itemSelectionListener;
-    boolean isCABEnabled = false;
 
     public MyRecyclerViewAdapter(ArrayList<Notes> myDataSet, Builder mDrawableBuilder, Context context, ItemSelectionListener itemSelectionListener) {
         this.mDataSet = myDataSet;
@@ -48,9 +47,11 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(final DataObjectHolder holder, final int position) {
         Notes notesItem = getItem(position);
+        String date = notesItem.getDate();
+        String time = notesItem.getTime();
 
         holder.label.setText(notesItem.getTitle());
-        holder.dateTime.setText(notesItem.getBody());
+        holder.dateTime.setText("Date : " + date + " Time : " + time);
 
         updateCheckedState(holder, notesItem);
 
@@ -70,40 +71,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                 Notes notesItem = getItem(position);
                 notesItem.setChecked(!notesItem.isChecked);
                 updateCheckedState(holder, notesItem);
-
-                /*if (!isCABEnabled) {
-                    holder.textIcon.startActionMode(new ActionMode.Callback() {
-                        @Override
-                        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                            mode.setTitle("Selected");
-                            MenuInflater inflater = mode.getMenuInflater();
-                            inflater.inflate(R.menu.notes_menu, menu);
-                            return true;
-                        }
-
-                        @Override
-                        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                            return false;
-                        }
-
-                        @Override
-                        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                            switch (item.getItemId()) {
-                                case R.id.delete:
-                                    deleteSelectedItems();
-                                    return true;
-                                default:
-                                    return false;
-                            }
-                        }
-
-                        @Override
-                        public void onDestroyActionMode(ActionMode mode) {
-                            mode.finish();
-                        }
-                    });
-                    isCABEnabled = true;
-                }*/
             }
         });
     }
@@ -171,7 +138,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
     public interface MyClickListener {
-        public void onItemClick(int position, View v);
+        void onItemClick(int position, View v);
     }
 
     public void setOnItemClickListener(MyClickListener myClickListener) {
@@ -191,7 +158,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             notesListItem = (LinearLayout) itemView.findViewById(R.id.notes_list_item);
             notesView = (CardView) itemView.findViewById(R.id.card_view);
             label = (TextView) itemView.findViewById(R.id.notes_title);
-            dateTime = (TextView) itemView.findViewById(R.id.notes_body);
+            dateTime = (TextView) itemView.findViewById(R.id.date_time);
             textIcon = (ImageView) itemView.findViewById(R.id.text_icon);
             checkIcon = (ImageView) itemView.findViewById(R.id.check_icon);
         }
