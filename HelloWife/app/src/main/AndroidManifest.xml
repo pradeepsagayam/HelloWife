@@ -44,6 +44,7 @@
         <activity android:name=".HiddenActivity" />
         <activity android:name=".NotesList" />
         <activity android:name=".AddNewNote" />
+        <activity android:name=".LocationPicker" />
 
         <!-- Goolge API Key -->
 

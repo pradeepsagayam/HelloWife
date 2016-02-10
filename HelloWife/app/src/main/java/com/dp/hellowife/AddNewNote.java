@@ -1,6 +1,7 @@
 package com.dp.hellowife;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -44,8 +45,9 @@ public class AddNewNote extends AppCompatActivity implements
     Boolean enableVibration = true;
     Boolean enableSeconds = false;
     Boolean enableShowYearFirst = false;
-    String separator = " / ";
+    String separator = "/";
     Boolean isFavourite = false;
+    private static final int LOCATION_PICKER_REQUEST_CODE = 10;
 
     @Nullable
     @Override
@@ -108,6 +110,7 @@ public class AddNewNote extends AppCompatActivity implements
             }
             if (v == noteTitle) {
                 if (actionId == EditorInfo.IME_ACTION_NEXT) {
+                    noteTitle.clearFocus();
                     noteText.requestFocus();
 //                    showNoteTextView();
                 }
@@ -264,9 +267,9 @@ public class AddNewNote extends AppCompatActivity implements
         String minuteString = minute < 10 ? "0" + minute : "" + minute;
         if (enableSeconds) {
             String secondString = second < 10 ? "0" + second : "" + second;
-            time = hourString + " : " + minuteString + " : " + secondString;
+            time = hourString + ":" + minuteString + ":" + secondString;
         } else {
-            time = hourString + " : " + minuteString;
+            time = hourString + ":" + minuteString;
         }
         timeValue.setText(time);
     }
@@ -299,7 +302,8 @@ public class AddNewNote extends AppCompatActivity implements
     }
 
     private void pickLocation() {
-
+        Intent locationIntent = new Intent(this, LocationPicker.class);
+        startActivityForResult(locationIntent, LOCATION_PICKER_REQUEST_CODE);
     }
 
     private void pickFavourite() {
@@ -322,5 +326,14 @@ public class AddNewNote extends AppCompatActivity implements
 
         if (timePickerDialog != null) timePickerDialog.setOnTimeSetListener(this);
         if (datePickerDialog != null) datePickerDialog.setOnDateSetListener(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == LOCATION_PICKER_REQUEST_CODE && resultCode == RESULT_OK) {
+            String place = data.getStringExtra("place");
+            locationValue.setText(place);
+        }
     }
 }

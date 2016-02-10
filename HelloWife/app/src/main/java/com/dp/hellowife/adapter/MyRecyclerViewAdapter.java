@@ -47,11 +47,10 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(final DataObjectHolder holder, final int position) {
         Notes notesItem = getItem(position);
-        String date = notesItem.getDate();
-        String time = notesItem.getTime();
 
         holder.label.setText(notesItem.getTitle());
-        holder.dateTime.setText("Date : " + date + " Time : " + time);
+        holder.content.setText(notesItem.getBody());
+        holder.dateTime.setText(notesItem.getDate() + " - " + notesItem.getTime());
 
         updateCheckedState(holder, notesItem);
 
@@ -150,6 +149,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         CardView notesView;
         TextView label;
         TextView dateTime;
+        TextView content;
         ImageView textIcon;
         ImageView checkIcon;
 
@@ -159,6 +159,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             notesView = (CardView) itemView.findViewById(R.id.card_view);
             label = (TextView) itemView.findViewById(R.id.notes_title);
             dateTime = (TextView) itemView.findViewById(R.id.date_time);
+            content = (TextView) itemView.findViewById(R.id.note_content);
             textIcon = (ImageView) itemView.findViewById(R.id.text_icon);
             checkIcon = (ImageView) itemView.findViewById(R.id.check_icon);
         }
