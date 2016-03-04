@@ -1,8 +1,9 @@
-package com.dp.hellowife;
+package com.dp.hellowife.login;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.dp.hellowife.HiddenActivity;
 import com.msf.pinlibrary.PrefHelper;
 import com.msf.pinlibrary.SetPin;
 
@@ -20,7 +21,6 @@ public class SetUserPin extends SetPin {
 
         Intent intent = new Intent(SetUserPin.this, HiddenActivity.class);
         startActivity(intent);
-//        System.out.println("AAAA pin : " + pin);
 //        setResult(SUCCESS);
         finish();
     }

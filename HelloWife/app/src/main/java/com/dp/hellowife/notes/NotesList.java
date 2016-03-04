@@ -1,4 +1,4 @@
-package com.dp.hellowife;
+package com.dp.hellowife.notes;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.dp.hellowife.HomeScreen;
+import com.dp.hellowife.R;
 import com.dp.hellowife.adapter.MyRecyclerViewAdapter;
+import com.dp.hellowife.constants.AppConstants;
 import com.dp.hellowife.helper.DataBaseHelper;
 import com.dp.hellowife.helper.TextDrawableHelper;
 import com.dp.hellowife.interfaces.Builder;
@@ -82,14 +85,12 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
         mAdapter = new MyRecyclerViewAdapter(getNotesList(), mDrawableBuilder, this, new ItemSelectionListener() {
             @Override
             public void onSelected() {
-                System.out.println("AAAA Item Selected");
                 menu.findItem(R.id.delete).setVisible(true);
                 menu.findItem(R.id.delete).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
             }
 
             @Override
             public void onUnselected() {
-                System.out.println("AAAA Item Unselected");
                 if (null != menu) {
                     menu.findItem(R.id.delete).setVisible(false);
                 }

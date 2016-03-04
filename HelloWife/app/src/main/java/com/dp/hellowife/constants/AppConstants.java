@@ -1,4 +1,4 @@
-package com.dp.hellowife;
+package com.dp.hellowife.constants;
 
 /**
  * Created by pradeepd on 11-01-2016.

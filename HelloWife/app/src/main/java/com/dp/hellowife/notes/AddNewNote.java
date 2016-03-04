@@ -1,4 +1,4 @@
-package com.dp.hellowife;
+package com.dp.hellowife.notes;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dp.hellowife.R;
 import com.dp.hellowife.helper.DataBaseHelper;
 import com.dp.hellowife.model.Notes;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;

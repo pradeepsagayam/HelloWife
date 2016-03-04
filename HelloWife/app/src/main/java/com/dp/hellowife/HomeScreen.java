@@ -15,6 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.dp.hellowife.login.EnterPin;
+import com.dp.hellowife.login.SetUserPin;
+import com.dp.hellowife.notes.NotesList;
 import com.msf.pinlibrary.PrefHelper;
 
 /**

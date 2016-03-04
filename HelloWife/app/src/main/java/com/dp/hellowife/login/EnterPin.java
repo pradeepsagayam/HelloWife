@@ -1,8 +1,9 @@
-package com.dp.hellowife;
+package com.dp.hellowife.login;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.dp.hellowife.HiddenActivity;
 import com.msf.pinlibrary.ConfirmPin;
 import com.msf.pinlibrary.PrefHelper;
 
