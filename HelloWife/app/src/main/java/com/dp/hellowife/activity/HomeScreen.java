@@ -1,4 +1,4 @@
-package com.dp.hellowife;
+package com.dp.hellowife.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.dp.hellowife.R;
 import com.dp.hellowife.login.EnterPin;
 import com.dp.hellowife.login.SetUserPin;
 import com.dp.hellowife.notes.NotesList;

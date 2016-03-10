@@ -3,7 +3,7 @@ package com.dp.hellowife.login;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.dp.hellowife.HiddenActivity;
+import com.dp.hellowife.activity.HiddenActivity;
 import com.msf.pinlibrary.PrefHelper;
 import com.msf.pinlibrary.SetPin;
 

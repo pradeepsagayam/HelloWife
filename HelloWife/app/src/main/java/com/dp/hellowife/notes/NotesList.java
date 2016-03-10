@@ -13,9 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.dp.hellowife.HomeScreen;
+import com.dp.hellowife.activity.HomeScreen;
 import com.dp.hellowife.R;
-import com.dp.hellowife.adapter.MyRecyclerViewAdapter;
+import com.dp.hellowife.adapter.NotesRecyclerViewAdapter;
 import com.dp.hellowife.constants.AppConstants;
 import com.dp.hellowife.helper.DataBaseHelper;
 import com.dp.hellowife.helper.TextDrawableHelper;
@@ -31,8 +31,8 @@ import java.util.ArrayList;
  */
 public class NotesList extends AppCompatActivity implements View.OnClickListener {
 
-    private MyRecyclerViewAdapter mAdapter;
-    private static String LOG_TAG = "CardViewActivity";
+    private NotesRecyclerViewAdapter mAdapter;
+    private static String LOG_TAG = "NotesList";
     FloatingActionButton addNewNote;
     public static final int ROUND = 1;
     public static final int ROUND_WITH_BORDER = 2;
@@ -45,7 +45,7 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.card_view);
+        setContentView(R.layout.notes_card_view);
 
         setUpViews();
         setUpControllers();
@@ -53,7 +53,7 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
     }
 
     private void setUpViews() {
-        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        mRecyclerView = (RecyclerView) findViewById(R.id.notes_recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
         addNewNote = (FloatingActionButton) findViewById(R.id.addNewNote);
@@ -82,7 +82,7 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
         addNewNote.setOnClickListener(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new MyRecyclerViewAdapter(getNotesList(), mDrawableBuilder, this, new ItemSelectionListener() {
+        mAdapter = new NotesRecyclerViewAdapter(getNotesList(), mDrawableBuilder, this, new ItemSelectionListener() {
             @Override
             public void onSelected() {
                 menu.findItem(R.id.delete).setVisible(true);
@@ -99,10 +99,10 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
         mRecyclerView.setAdapter(mAdapter);
 
         // Code to Add an item with default animation
-        //((MyRecyclerViewAdapter) mAdapter).addItem(obj, index);
+        //((NotesRecyclerViewAdapter) mAdapter).addItem(obj, index);
 
         // Code to remove an item with default animation
-        //((MyRecyclerViewAdapter) mAdapter).deleteItem(index);
+        //((NotesRecyclerViewAdapter) mAdapter).deleteItem(index);
     }
 
     @Override
@@ -144,7 +144,7 @@ public class NotesList extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onResume() {
         super.onResume();
-        mAdapter.setOnItemClickListener(new MyRecyclerViewAdapter
+        mAdapter.setOnItemClickListener(new NotesRecyclerViewAdapter
                 .MyClickListener() {
             @Override
             public void onItemClick(int position, View v) {

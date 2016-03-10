@@ -31,7 +31,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".HomeScreen"
+            android:name=".activity.HomeScreen"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -43,7 +43,7 @@
 
         <activity android:name=".login.SetUserPin" />
         <activity android:name=".login.EnterPin" />
-        <activity android:name=".HiddenActivity" />
+        <activity android:name=".activity.HiddenActivity" />
         <activity android:name=".notes.NotesList" />
         <activity android:name=".notes.AddNewNote" />
         <activity android:name=".notes.LocationPicker" />

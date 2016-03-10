@@ -25,8 +25,8 @@ import java.util.ArrayList;
 /**
  * Created by pradeepd on 09-01-2016.
  */
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.DataObjectHolder> {
-    private static String LOG_TAG = "MyRecyclerViewAdapter";
+public class NotesRecyclerViewAdapter extends RecyclerView.Adapter<NotesRecyclerViewAdapter.DataObjectHolder> {
+    private static String LOG_TAG = "NotesRecyclerViewAdapter";
     private ArrayList<Notes> mDataSet;
     ArrayList<Notes> mSelectedData = new ArrayList<>();
     private static MyClickListener myClickListener;
@@ -37,7 +37,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     Context context;
     ItemSelectionListener itemSelectionListener;
 
-    public MyRecyclerViewAdapter(ArrayList<Notes> myDataSet, Builder mDrawableBuilder, Context context, ItemSelectionListener itemSelectionListener) {
+    public NotesRecyclerViewAdapter(ArrayList<Notes> myDataSet, Builder mDrawableBuilder, Context context, ItemSelectionListener itemSelectionListener) {
         this.mDataSet = myDataSet;
         this.mDrawableBuilder = mDrawableBuilder;
         this.context = context;
@@ -141,7 +141,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
     public void setOnItemClickListener(MyClickListener myClickListener) {
-        MyRecyclerViewAdapter.myClickListener = myClickListener;
+        NotesRecyclerViewAdapter.myClickListener = myClickListener;
     }
 
     public class DataObjectHolder extends RecyclerView.ViewHolder {
@@ -156,7 +156,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         public DataObjectHolder(View itemView) {
             super(itemView);
             notesListItem = (LinearLayout) itemView.findViewById(R.id.notes_list_item);
-            notesView = (CardView) itemView.findViewById(R.id.card_view);
+            notesView = (CardView) itemView.findViewById(R.id.notes_card_view);
             label = (TextView) itemView.findViewById(R.id.notes_title);
             dateTime = (TextView) itemView.findViewById(R.id.date_time);
             content = (TextView) itemView.findViewById(R.id.note_content);
